@@ -184,8 +184,24 @@
 
         .hero-overlay {
             position: relative;
-            background: linear-gradient(180deg, rgba(10, 25, 47, 0.85) 0%, rgba(10, 10, 15, 0.95) 100%);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><radialGradient id="grad1" cx="50%25" cy="50%25" r="50%25"><stop offset="0%25" style="stop-color:rgba(201,168,76,0.1);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(10,10,15,0);stop-opacity:1" /></radialGradient></defs><rect width="1920" height="1080" fill="url(%23grad1)"/></svg>');
+        }
+
+        .hero-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://res.cloudinary.com/drqgkirpy/image/upload/f_auto,q_auto,w_1920/scibasku/egipto/sharm/buceador-anthias.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .hero-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 10, 15, 0.55) 0%, rgba(10, 10, 15, 0.85) 100%);
+            z-index: 1;
         }
 
         .badge-emerald {
@@ -430,8 +446,7 @@
         function HeroSection() {
             return (
                 <div id="hero" className="relative w-full min-h-screen flex items-center justify-center hero-overlay overflow-hidden">
-                    <div className="absolute inset-0 z-0"></div>
-                    <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+                    <div className="relative z-10 max-w-4xl mx-auto px-4 text-center" style={{position: 'relative', zIndex: 2}}>
                         <div className="inline-block badge-emerald mb-6 fade-in-section">
                             Destino Emergente 2026
                         </div>
@@ -848,9 +863,11 @@
                 return (
                     <button
                         onClick={() => setIsOpen(true)}
-                        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full btn-gold shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+                        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 btn-gold px-4 py-3 rounded-full shadow-lg hover:scale-105 transition-transform"
+                        style={{boxShadow: '0 4px 20px rgba(201, 168, 76, 0.4)'}}
                     >
-                        💬
+                        <span className="text-lg">💬</span>
+                        <span className="text-sm font-bold">Pregunta a Giora</span>
                     </button>
                 );
             }
@@ -880,10 +897,27 @@
                     {/* Messages */}
                     <div className="flex-1 overflow-y-auto p-4 flex flex-col space-y-3">
                         {messages.length === 0 && (
-                            <div className="flex items-center justify-center h-full text-center">
-                                <div>
+                            <div className="flex flex-col justify-center h-full">
+                                <div className="text-center mb-4">
                                     <p className="text-4xl mb-3">🌊</p>
-                                    <p className="text-text-secondary text-sm">Hola, soy Giora. Que quieres saber sobre buceo en Arabia Saudi?</p>
+                                    <p className="text-text-primary font-bold text-sm mb-1">Hola, soy Giora</p>
+                                    <p className="text-text-secondary text-xs">42 anos organizando viajes de buceo. Preguntame lo que quieras.</p>
+                                </div>
+                                <div className="flex flex-wrap gap-2 justify-center">
+                                    {[
+                                        "Mejor epoca para bucear?",
+                                        "Que barcos hay disponibles?",
+                                        "Precios por semana?",
+                                        "Necesito visado?"
+                                    ].map((pill, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={() => { setInput(pill); }}
+                                            className="text-xs px-3 py-2 rounded-full border border-gold text-gold hover:bg-gold hover:text-dark-primary transition-all cursor-pointer"
+                                        >
+                                            {pill}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
                         )}
