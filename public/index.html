@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabia Saudi - Guia de Buceo | Viajes Scibasku</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-primary': '#0A0A0F',
+                        'dark-secondary': '#111118',
+                        'dark-tertiary': '#0D0D15',
+                        'gold': '#C9A84C',
+                        'gold-hover': '#E0BA66',
+                        'text-primary': '#FFFFFF',
+                        'text-secondary': '#A0A0B0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out forwards',
+                        'pulse-dot': 'pulseDot 1.4s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseDot: {
+                            '0%, 60%, 100%': { opacity: '0.3' },
+                            '30%': { opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0A0A0F;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-dark {
+            background: linear-gradient(135deg, #0A0A0F 0%, #1a1a2e 100%);
+        }
+
+        .gradient-blue-dark {
+            background: linear-gradient(180deg, rgba(10, 25, 47, 0.8) 0%, rgba(10, 10, 15, 0.95) 100%);
+        }
+
+        .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(201, 168, 76, 0.1);
+        }
+
+        .btn-gold {
+            background-color: #C9A84C;
+            color: #0A0A0F;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: #E0BA66;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 168, 76, 0.3);
+        }
+
+        .btn-outline-gold {
+            border: 2px solid #C9A84C;
+            color: #C9A84C;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-gold:hover {
+            background-color: #C9A84C;
+            color: #0A0A0F;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        .chat-bubble {
+            padding: 12px 16px;
+            border-radius: 18px;
+            max-width: 80%;
+            word-wrap: break-word;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .chat-user {
+            background-color: #C9A84C;
+            color: #0A0A0F;
+            align-self: flex-end;
+        }
+
+        .chat-bot {
+            background-color: #1a1a2e;
+            color: #FFFFFF;
+            border: 1px solid #2a2a3e;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #C9A84C;
+            animation: pulse-dot 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .scroll-spy-active {
+            color: #C9A84C;
+            border-bottom: 2px solid #C9A84C;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse-dot {
+            0%, 60%, 100% {
+                opacity: 0.3;
+            }
+            30% {
+                opacity: 1;
+            }
+        }
+
+        .hero-overlay {
+            position: relative;
+            background: linear-gradient(180deg, rgba(10, 25, 47, 0.85) 0%, rgba(10, 10, 15, 0.95) 100%);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><radialGradient id="grad1" cx="50%25" cy="50%25" r="50%25"><stop offset="0%25" style="stop-color:rgba(201,168,76,0.1);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(10,10,15,0);stop-opacity:1" /></radialGradient></defs><rect width="1920" height="1080" fill="url(%23grad1)"/></svg>');
+        }
+
+        .badge-emerald {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tag-filter {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #C9A84C;
+            color: #C9A84C;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 4px 4px 4px 0;
+        }
+
+        .tag-filter:hover {
+            background-color: #C9A84C;
+            color: #0A0A0F;
+        }
+
+        .tag-filter.active {
+            background-color: #C9A84C;
+            color: #0A0A0F;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+        }
+
+        .modal-content {
+            background-color: #111118;
+            border: 1px solid #2a2a3e;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="smooth-scroll">
+    <div id="root"></div>
+
+    <!-- React y Babel -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        // ============================================
+        // CONFIGURACION Y CONSTANTES
+        // ============================================
+
+        const LIVEABOARDS = [
+            {
+                id: 1,
+                name: "M/Y Almonda",
+                operator: "Ocean Breeze Liveaboards",
+                email: "info@oceanbreeze-liveaboards.com",
+                whatsapp: "+966 54 579 0970",
+                routes: ["Seven Sisters", "Farasan Banks"],
+                capacity: "24 pax",
+                cabins: "12 cabinas",
+                duration: "7 dias/noches",
+                price: "9.750 SAR (~2.593 USD)",
+                length: "39.9m",
+                year: "2017",
+                features: ["Nitrox incluido", "Jacuzzi", "WiFi"],
+                tags: ["Seven Sisters", "Farasan Banks"]
+            },
+            {
+                id: 2,
+                name: "Dream Master",
+                operator: "Dream Divers",
+                email: "Eric@dreamdiver.sa",
+                phone: "+966-56-301-1112",
+                website: "dreamdiver.sa",
+                routes: ["Farasan Banks", "Yanbu", "Al Lith", "Jeddah"],
+                capacity: "28 pax",
+                cabins: "7 cabinas (1 suite + 6 literas)",
+                length: "28.3m",
+                year: "2005",
+                features: ["Chef filipin", "Equipo DAN", "2 semirrigidas"],
+                price: "Consultar precio",
+                tags: ["Farasan Banks", "Seven Sisters"]
+            },
+            {
+                id: 3,
+                name: "Dream Island",
+                operator: "Dream Divers",
+                email: "Eric@dreamdiver.sa",
+                website: "dreamdiver.sa",
+                routes: ["Jeddah", "Al Lith", "Yanbu", "Jazan"],
+                capacity: "14 pax",
+                cabins: "6 cabinas",
+                length: "26.3m",
+                year: "2007",
+                features: ["Grupos privados", "Nitrox", "Desalinizador"],
+                price: "Consultar precio",
+                tags: ["Farasan Banks"]
+            },
+            {
+                id: 4,
+                name: "M/Y Eclipse",
+                operator: "Eclipse Red Sea",
+                email: "info@eclipse-redsea.com",
+                phone: "+2 010 6884 3032",
+                website: "eclipse-redsea.com",
+                routes: ["Farasan Banks", "Seven Sisters", "Qumais Islands"],
+                capacity: "24 pax",
+                cabins: "12 cabinas (1 Master + 1 Moon + 4 Jupiter Family)",
+                length: "45m",
+                year: "2021",
+                features: ["Barco de lujo", "4 idiomas", "Nuevo"],
+                price: "Consultar precio",
+                tags: ["Farasan Banks", "Seven Sisters"]
+            },
+            {
+                id: 5,
+                name: "M/Y Saudi Explorer",
+                operator: "La Compagnia del Mar Rosso",
+                email: "info@mar-rosso.it",
+                website: "mar-rosso.it",
+                routes: ["Seven Reefs/Five Sisters (jun-oct)", "Farasan Banks (nov-may)"],
+                capacity: "20 pax",
+                cabins: "10 cabinas",
+                length: "33m",
+                features: ["WiFi", "Buceos ilimitados", "Nitrox"],
+                price: "€2.310 / semana",
+                tags: ["Farasan Banks", "Seven Sisters", "Five Corals"]
+            },
+            {
+                id: 6,
+                name: "M/Y Andromeda",
+                operator: "Cassiopeia Safari",
+                email: "info@cassiopeiasafari.com",
+                website: "cassiopeiasafari.com",
+                routes: ["Farasan Banks"],
+                capacity: "26 pax",
+                cabins: "13 cabinas dobles",
+                length: "40m",
+                features: ["4 cubiertas", "Shisha room", "Solarium"],
+                price: "€1.928 / semana",
+                tags: ["Farasan Banks"]
+            },
+            {
+                id: 7,
+                name: "M/S Royal Evolution",
+                operator: "Royal Evolution",
+                website: "royalevolution.com",
+                routes: ["Farasan Banks (11 noches)"],
+                capacity: "24 pax",
+                cabins: "12 cabinas",
+                length: "39m",
+                features: ["SOLAS Bureau Veritas", "Nitrox GRATUITO", "3 instructores"],
+                price: "Consultar precio",
+                tags: ["Farasan Banks"]
+            }
+        ];
+
+        const DIVE_CENTERS = {
+            jeddah: [
+                { name: "Al-Haddad Scuba", cert: "SSI", web: "haddadscuba.com", note: "El mas grande" },
+                { name: "Red Sea Citizen", cert: "PADI", web: "redsea-citizen.com", email: "info@redsea-citizen.com", phone: "+966 53 750 8842" },
+                { name: "Dive Holics", cert: "PADI 5 Star IDC", web: "diveholics.com", phone: "+966 54 141 8484" },
+                { name: "Al Sanbouk", cert: "PADI 5 Star IDC", web: "jeddah-diver.com", note: "Mayor distribuidor equipo" },
+                { name: "Saudia Scuba", cert: "PADI", web: "saudiascuba.com", phone: "+966 57 006 0090" }
+            ],
+            yanbu: [
+                { name: "Diving Bubbles", cert: "PADI 5 Star", web: "bubblesgroup.com", phone: "+966 56 081 0339", note: "Cerrado martes" },
+                { name: "Adventure Diver", cert: "PADI", web: "adventuredivers.sa", phone: "+966 50 602 1313" },
+                { name: "Blue Diver", cert: "PADI", web: "bluediver.com.sa", note: "19 sitios de buceo" },
+                { name: "Galaxea", cert: "PADI 5 Star Adaptive", web: "Red Sea Global", phone: "+966 53 970 7365", note: "Nujuma/Turtle Bay" }
+            ]
+        };
+
+        // ============================================
+        // COMPONENTES PRINCIPALES
+        // ============================================
+
+        // Navbar Component
+        function Navbar({ activeSection, onNavClick }) {
+            return (
+                <nav className="sticky top-0 z-40 bg-dark-primary bg-opacity-80 backdrop-blur-md border-b border-dark-secondary">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="flex justify-between items-center h-16">
+                            {/* Logo */}
+                            <div className="flex items-center">
+                                <img src="https://viajesscibasku.com/logo-scibasku.png" alt="Scibasku" className="h-8 w-auto" onError={(e) => {
+                                    e.target.innerHTML = '<span class="text-gold font-bold text-lg">SCIBASKU</span>';
+                                }} />
+                            </div>
+
+                            {/* Links */}
+                            <div className="hidden md:flex space-x-8">
+                                {["Destino", "Liveaboard", "Centros", "Chatbot"].map(section => (
+                                    <button
+                                        key={section}
+                                        onClick={() => onNavClick(section)}
+                                        className={`text-sm font-500 transition-colors pb-2 ${
+                                            activeSection === section
+                                                ? "text-gold border-b-2 border-gold"
+                                                : "text-text-secondary hover:text-text-primary"
+                                        }`}
+                                    >
+                                        {section}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* CTA Button */}
+                            <div>
+                                <a href="mailto:info@viajesscibasku.com?subject=Buceo Arabia Saudi - Solicitud presupuesto" className="btn-gold px-6 py-2 rounded-lg text-sm font-600 hover:shadow-lg">
+                                    Habla con Giora
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            );
+        }
+
+        // Hero Section
+        function HeroSection() {
+            return (
+                <div id="hero" className="relative w-full min-h-screen flex items-center justify-center hero-overlay overflow-hidden">
+                    <div className="absolute inset-0 z-0"></div>
+                    <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+                        <div className="inline-block badge-emerald mb-6 fade-in-section">
+                            Destino Emergente 2026
+                        </div>
+                        <h1 className="text-6xl md:text-7xl font-bold text-text-primary mb-4 fade-in-section" style={{animationDelay: '0.1s'}}>
+                            Arabia Saudi
+                        </h1>
+                        <h2 className="text-2xl md:text-3xl text-gold mb-8 fade-in-section" style={{animationDelay: '0.2s'}}>
+                            El arrecife mas virgen del Mar Rojo
+                        </h2>
+                        <p className="text-lg text-text-secondary mb-12 max-w-2xl mx-auto leading-relaxed fade-in-section" style={{animationDelay: '0.3s'}}>
+                            Sin masificacion. Solo arrecifes intactos, tiburones martillo que vuelven ano tras ano, visibilidad de 60 metros y una experiencia que cambio el buceo mundial cuando Cousteau la exploro. Aqui buceas donde pocos han estado.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-section" style={{animationDelay: '0.4s'}}>
+                            <a href="mailto:info@viajesscibasku.com?subject=Solicitud presupuesto - Buceo Arabia Saudi" className="btn-gold px-8 py-3 rounded-lg font-600 inline-block text-center">
+                                Solicita tu presupuesto
+                            </a>
+                            <a href="#liveaboard" className="btn-outline-gold px-8 py-3 rounded-lg font-600 inline-block text-center">
+                                Explorar barcos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Why Saudi Section
+        function WhySaudiSection() {
+            const reasons = [
+                {
+                    title: "Arrecifes Virgenes",
+                    description: "Sin masificacion. Tiburones martillo, ballenas, tortugas.",
+                    icon: "🏝️"
+                },
+                {
+                    title: "Visibilidad Extrema",
+                    description: "30-60 metros. En Yanbu: ves el fondo desde el barco.",
+                    icon: "👁️"
+                },
+                {
+                    title: "Farasan Banks",
+                    description: "Origen volcanico. Jacques Cousteau la llamo fascinante.",
+                    icon: "🌋"
+                }
+            ];
+
+            const zones = [
+                {
+                    name: "Farasan Banks",
+                    location: "Sur",
+                    wildlife: "Tiburones martillo",
+                    depth: "60m",
+                    season: "Nov-May"
+                },
+                {
+                    name: "Seven Sisters",
+                    location: "Yanbu",
+                    wildlife: "7 arrecifes, hammerheads",
+                    depth: "40m",
+                    season: "Ano redondo"
+                },
+                {
+                    name: "Five Corals",
+                    location: "Rabigh",
+                    wildlife: "Fauna pelagica",
+                    depth: "35m",
+                    season: "Nov-May"
+                },
+                {
+                    name: "Jeddah Wrecks",
+                    location: "Jeddah",
+                    wildlife: "Pecios historicos",
+                    depth: "25m",
+                    season: "Oct-May"
+                }
+            ];
+
+            return (
+                <section id="destino" className="py-20 bg-dark-primary">
+                    <div className="max-w-7xl mx-auto px-4">
+                        {/* Why Saudi */}
+                        <div className="mb-20">
+                            <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-16 text-center">
+                                Por que Arabia Saudi
+                            </h2>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                {reasons.map((reason, idx) => (
+                                    <div key={idx} className="card-hover bg-dark-secondary border border-dark-tertiary rounded-xl p-8 hover:border-gold">
+                                        <div className="text-5xl mb-4">{reason.icon}</div>
+                                        <h3 className="text-xl font-bold text-text-primary mb-3">{reason.title}</h3>
+                                        <p className="text-text-secondary">{reason.description}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Dive Zones */}
+                        <div className="mb-20">
+                            <h3 className="text-3xl font-bold text-text-primary mb-12 text-center">Zonas de Buceo</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {zones.map((zone, idx) => (
+                                    <div key={idx} className="card-hover bg-gradient-to-br from-dark-secondary to-dark-tertiary border border-gold border-opacity-20 rounded-lg p-6 hover:border-opacity-100">
+                                        <h4 className="text-gold font-bold text-lg mb-4">{zone.name}</h4>
+                                        <div className="space-y-2 text-sm">
+                                            <div><span className="text-text-secondary">Ubicacion:</span> {zone.location}</div>
+                                            <div><span className="text-text-secondary">Fauna:</span> {zone.wildlife}</div>
+                                            <div><span className="text-text-secondary">Profundidad:</span> {zone.depth}</div>
+                                            <div><span className="text-text-secondary">Mejor epoca:</span> {zone.season}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Best Season */}
+                        <div className="bg-dark-secondary border border-dark-tertiary rounded-xl p-8">
+                            <h3 className="text-2xl font-bold text-text-primary mb-8">Mejor Epoca para Bucear</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div className="bg-dark-tertiary rounded-lg p-6 border-l-4 border-gold">
+                                    <h4 className="text-gold font-bold mb-2">Nov - Mayo</h4>
+                                    <p className="text-text-secondary text-sm mb-3">Temperatura: 20-24C</p>
+                                    <p className="text-text-secondary text-sm">Visibilidad: 40-60m</p>
+                                    <p className="text-text-secondary text-sm mt-2 font-500">Ideal: Farasan Banks</p>
+                                </div>
+                                <div className="bg-dark-tertiary rounded-lg p-6 border-l-4 border-gold">
+                                    <h4 className="text-gold font-bold mb-2">Jun - Octubre</h4>
+                                    <p className="text-text-secondary text-sm mb-3">Temperatura: 25-29C</p>
+                                    <p className="text-text-secondary text-sm">Visibilidad: 30-40m</p>
+                                    <p className="text-text-secondary text-sm mt-2 font-500">Ideal: Seven Sisters, Norte</p>
+                                </div>
+                                <div className="bg-dark-tertiary rounded-lg p-6 border-l-4 border-gold">
+                                    <h4 className="text-gold font-bold mb-2">Informacion Practica</h4>
+                                    <p className="text-text-secondary text-sm mb-2">eVisa Espana: USD 110</p>
+                                    <p className="text-text-secondary text-sm">Validez: 90 dias</p>
+                                    <p className="text-text-secondary text-sm mt-2">Tramite: Online</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Liveaboard Filter and Cards
+        function LiveaboardSection() {
+            const [selectedFilter, setSelectedFilter] = React.useState("Todos");
+            const [expandedBoat, setExpandedBoat] = React.useState(null);
+
+            const allTags = ["Todos", ...new Set(LIVEABOARDS.flatMap(b => b.tags))];
+
+            const filteredBoats = selectedFilter === "Todos"
+                ? LIVEABOARDS
+                : LIVEABOARDS.filter(b => b.tags.includes(selectedFilter));
+
+            return (
+                <section id="liveaboard" className="py-20 bg-dark-secondary">
+                    <div className="max-w-7xl mx-auto px-4">
+                        <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-12 text-center">
+                            Barcos Disponibles 2026
+                        </h2>
+
+                        {/* Filter */}
+                        <div className="flex flex-wrap justify-center gap-3 mb-12">
+                            {allTags.map(tag => (
+                                <button
+                                    key={tag}
+                                    onClick={() => setSelectedFilter(tag)}
+                                    className={`tag-filter ${selectedFilter === tag ? 'active' : ''}`}
+                                >
+                                    {tag}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Boats Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {filteredBoats.map(boat => (
+                                <div key={boat.id} className="card-hover bg-dark-tertiary border border-dark-secondary rounded-xl overflow-hidden hover:border-gold">
+                                    {/* Placeholder Image */}
+                                    <div className="w-full h-48 bg-gradient-to-br from-dark-secondary to-dark-tertiary flex items-center justify-center border-b border-dark-secondary">
+                                        <div className="text-center">
+                                            <div className="text-4xl mb-2">⛵</div>
+                                            <p className="text-gold font-bold">{boat.name}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="p-6">
+                                        <h3 className="text-xl font-bold text-text-primary mb-2">{boat.name}</h3>
+                                        <p className="text-text-secondary text-sm mb-4">{boat.operator}</p>
+
+                                        <div className="space-y-2 mb-4 text-sm">
+                                            <div><span className="text-text-secondary">Capacidad:</span> {boat.capacity}</div>
+                                            <div><span className="text-text-secondary">Eslora:</span> {boat.length || "N/A"}</div>
+                                            {boat.year && <div><span className="text-text-secondary">Ano:</span> {boat.year}</div>}
+                                        </div>
+
+                                        {/* Tags */}
+                                        <div className="flex flex-wrap gap-2 mb-4">
+                                            {boat.tags.map((tag, idx) => (
+                                                <span key={idx} className="bg-gold bg-opacity-10 text-gold text-xs px-2 py-1 rounded">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        {/* Price Badge */}
+                                        <div className="bg-gold bg-opacity-10 border border-gold border-opacity-30 rounded-lg p-3 mb-4">
+                                            <p className="text-gold font-bold text-sm">{boat.price}</p>
+                                        </div>
+
+                                        {/* CTA */}
+                                        <button
+                                            onClick={() => setExpandedBoat(expandedBoat === boat.id ? null : boat.id)}
+                                            className="w-full btn-gold px-4 py-2 rounded-lg text-sm font-600"
+                                        >
+                                            {expandedBoat === boat.id ? "Ocultar detalles" : "Ver detalles"}
+                                        </button>
+
+                                        {/* Expanded Details */}
+                                        {expandedBoat === boat.id && (
+                                            <div className="mt-4 pt-4 border-t border-dark-secondary space-y-3 text-sm">
+                                                {boat.features && (
+                                                    <div>
+                                                        <p className="text-text-secondary font-500 mb-1">Servicios:</p>
+                                                        <ul className="text-text-secondary space-y-1">
+                                                            {boat.features.map((f, idx) => (
+                                                                <li key={idx}>✓ {f}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                )}
+                                                {boat.email && (
+                                                    <a href={`mailto:${boat.email}`} className="text-gold hover:text-gold-hover block mt-2">
+                                                        {boat.email}
+                                                    </a>
+                                                )}
+                                                {boat.phone && (
+                                                    <p className="text-text-secondary">{boat.phone}</p>
+                                                )}
+                                                {boat.whatsapp && (
+                                                    <p className="text-text-secondary">{boat.whatsapp}</p>
+                                                )}
+                                                {boat.website && (
+                                                    <a href={`https://${boat.website}`} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-hover block">
+                                                        {boat.website}
+                                                    </a>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Dive Centers Section
+        function DiveCentersSection() {
+            const [activeTab, setActiveTab] = React.useState('jeddah');
+
+            return (
+                <section id="centros" className="py-20 bg-dark-primary">
+                    <div className="max-w-7xl mx-auto px-4">
+                        <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-12 text-center">
+                            Buceo desde Tierra
+                        </h2>
+
+                        {/* Tabs */}
+                        <div className="flex gap-4 mb-12 justify-center">
+                            {[
+                                { id: 'jeddah', label: 'Jeddah' },
+                                { id: 'yanbu', label: 'Yanbu' }
+                            ].map(tab => (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`px-6 py-2 rounded-lg font-600 transition-all ${
+                                        activeTab === tab.id
+                                            ? 'bg-gold text-dark-primary'
+                                            : 'border border-gold text-gold hover:bg-gold hover:bg-opacity-10'
+                                    }`}
+                                >
+                                    {tab.label}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Centers Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {DIVE_CENTERS[activeTab].map((center, idx) => (
+                                <div key={idx} className="card-hover bg-dark-secondary border border-dark-tertiary rounded-lg p-6 hover:border-gold">
+                                    <div className="flex justify-between items-start mb-3">
+                                        <h3 className="text-lg font-bold text-text-primary flex-1">{center.name}</h3>
+                                        <span className="bg-gold bg-opacity-10 text-gold text-xs px-2 py-1 rounded ml-2">
+                                            {center.cert}
+                                        </span>
+                                    </div>
+
+                                    {center.note && (
+                                        <p className="text-gold text-sm mb-3">{center.note}</p>
+                                    )}
+
+                                    <div className="space-y-2 text-sm text-text-secondary">
+                                        {center.web && (
+                                            <a href={`https://${center.web}`} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-hover block">
+                                                {center.web}
+                                            </a>
+                                        )}
+                                        {center.email && (
+                                            <a href={`mailto:${center.email}`} className="text-gold hover:text-gold-hover block">
+                                                {center.email}
+                                            </a>
+                                        )}
+                                        {center.phone && (
+                                            <p>{center.phone}</p>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Chat Component
+        function ChatWidget({ isEmbedded = false }) {
+            const [messages, setMessages] = React.useState([]);
+            const [input, setInput] = React.useState("");
+            const [loading, setLoading] = React.useState(false);
+            const [isOpen, setIsOpen] = React.useState(isEmbedded);
+            const messagesEndRef = React.useRef(null);
+
+            const scrollToBottom = () => {
+                messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+            };
+
+            React.useEffect(() => {
+                scrollToBottom();
+            }, [messages]);
+
+            // Fallback responses for common questions
+            const getFallbackResponse = (question) => {
+                const q = question.toLowerCase();
+
+                if (q.includes("precio") || q.includes("costo") || q.includes("cuanto")) {
+                    return "Los precios varian segun el barco y la zona:\n\nM/Y Almonda: 9.750 SAR (~2.593 USD) por semana\nSaudi Explorer: desde 2.310 EUR por semana\nM/Y Andromeda: ~1.928 EUR por semana\n\nOtros barcos requieren consulta directa. Tienes un barco en mente? Te puedo pasar contacto directo.";
+                }
+
+                if (q.includes("visado") || q.includes("visa") || q.includes("documento")) {
+                    return "Para espanoles es muy facil:\n\neVisa Arabia Saudi:\nCosto: USD 110\nTramitacion: 100% online\nValidez: 90 dias\nProcesamiento: generalmente en 24-48h\n\nEntra en sa.visaone.com - super rapido.";
+                }
+
+                if (q.includes("cuando") || q.includes("mejor epoca") || q.includes("temporada")) {
+                    return "Depende de donde quieras ir:\n\nFARASAN BANKS (mejor destino):\nNov-Mayo: Condiciones perfectas\nTiburones martillo, ballenas\nVisibilidad 40-60m\n\nNORTE (Yanbu, Seven Sisters):\nJunio-Octubre: Tambien bueno\nHammerheads ano redondo\n\nEntre noviembre y mayo es la epoca mas espectacular. Tienes fechas en mente?";
+                }
+
+                if (q.includes("tiburon") || q.includes("fauna") || q.includes("animales")) {
+                    return "Arabia Saudi es un paraiso para la fauna marina:\n\nTiburones martillo: El principal atractivo\nBallenas: Ocasionalmente en Farasan Banks\nTortugas: Frecuentes todo el ano\nCalamares: Especialmente en invierno\nPeces tropicales: Infinidad de especies\n\nLa visibilidad (30-60m) hace que los avistamientos sean especiales. Hay alguna especie particular que buscas?";
+                }
+
+                if (q.includes("barco") || q.includes("liveaboard")) {
+                    return "Tenemos 7 barcos operando en Arabia Saudi:\n\nM/Y Almonda: 24 pax, desde 9.750 SAR (Ocean Breeze)\nM/Y Eclipse: 24 pax, 2021 (lujo absoluto)\nSaudi Explorer: 20 pax, desde 2.310 EUR\nM/Y Andromeda: 26 pax, ~1.928 EUR\n\nY otros mas. Prefieres algo mas lujoso, mas economico, o te interesa una zona especifica?";
+                }
+
+                if (q.includes("grupo") || q.includes("privado")) {
+                    return "Para grupos privados te recomiendo:\n\nDream Island (14 pax): Perfecta para grupos cerrados\nM/Y Almonda: Flexible para grupos de 12+\n\nSi quereis chartered completo, contactame y miramos opciones. Cuantas personas sois?";
+                }
+
+                return null;
+            };
+
+            const sendMessage = async (e) => {
+                e.preventDefault();
+                if (!input.trim()) return;
+
+                const userMsg = { role: "user", content: input };
+                setMessages(prev => [...prev, userMsg]);
+                setInput("");
+                setLoading(true);
+
+                try {
+                    const apiMessages = [...messages, userMsg].map(m => ({
+                        role: m.role,
+                        content: m.content
+                    }));
+
+                    const apiResponse = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ messages: apiMessages })
+                    });
+
+                    if (apiResponse.ok) {
+                        const data = await apiResponse.json();
+                        const response = data.content[0].text;
+                        setMessages(prev => [...prev, { role: "assistant", content: response }]);
+                    } else {
+                        throw new Error("API error");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    const fallbackResponse = getFallbackResponse(input) ||
+                        "Parece que hubo un problema. Por favor, contacta a Giora: info@viajesscibasku.com";
+                    setMessages(prev => [...prev, { role: "assistant", content: fallbackResponse }]);
+                }
+
+                setLoading(false);
+            };
+
+            if (!isEmbedded && !isOpen) {
+                return (
+                    <button
+                        onClick={() => setIsOpen(true)}
+                        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full btn-gold shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+                    >
+                        💬
+                    </button>
+                );
+            }
+
+            const chatClasses = isEmbedded
+                ? "w-full h-full flex flex-col bg-dark-secondary rounded-lg border border-dark-tertiary"
+                : "fixed bottom-6 right-6 z-40 w-96 h-[500px] rounded-lg border border-dark-secondary bg-dark-secondary shadow-2xl flex flex-col";
+
+            return (
+                <div className={chatClasses}>
+                    {/* Header */}
+                    <div className="bg-dark-tertiary border-b border-dark-secondary p-4 rounded-t-lg flex justify-between items-center">
+                        <div>
+                            <h3 className="text-text-primary font-bold">Giora & Scibasku</h3>
+                            <p className="text-text-secondary text-sm">Experto en Arabia Saudi</p>
+                        </div>
+                        {!isEmbedded && (
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                className="text-text-secondary hover:text-text-primary"
+                            >
+                                ✕
+                            </button>
+                        )}
+                    </div>
+
+                    {/* Messages */}
+                    <div className="flex-1 overflow-y-auto p-4 flex flex-col space-y-3">
+                        {messages.length === 0 && (
+                            <div className="flex items-center justify-center h-full text-center">
+                                <div>
+                                    <p className="text-4xl mb-3">🌊</p>
+                                    <p className="text-text-secondary text-sm">Hola, soy Giora. Que quieres saber sobre buceo en Arabia Saudi?</p>
+                                </div>
+                            </div>
+                        )}
+                        {messages.map((msg, idx) => (
+                            <div
+                                key={idx}
+                                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                            >
+                                <div
+                                    className={`chat-bubble ${msg.role === "user" ? "chat-user" : "chat-bot"}`}
+                                >
+                                    <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                                </div>
+                            </div>
+                        ))}
+                        {loading && (
+                            <div className="flex justify-start">
+                                <div className="typing-indicator">
+                                    <div className="typing-dot"></div>
+                                    <div className="typing-dot"></div>
+                                    <div className="typing-dot"></div>
+                                </div>
+                            </div>
+                        )}
+                        <div ref={messagesEndRef} />
+                    </div>
+
+                    {/* Input */}
+                    <form onSubmit={sendMessage} className="border-t border-dark-secondary p-3 flex gap-2">
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            placeholder="Escribe tu pregunta..."
+                            className="flex-1 bg-dark-tertiary border border-dark-secondary text-text-primary placeholder-text-secondary rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold"
+                        />
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="btn-gold px-3 py-2 rounded-lg text-sm font-600 disabled:opacity-50"
+                        >
+                            Enviar
+                        </button>
+                    </form>
+                </div>
+            );
+        }
+
+        // Chatbot Section
+        function ChatbotSection() {
+            return (
+                <section id="chatbot" className="py-20 bg-dark-tertiary">
+                    <div className="max-w-4xl mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                                Tienes dudas? Pregunta al experto
+                            </h2>
+                            <p className="text-text-secondary text-lg">
+                                42 anos organizando viajes de buceo. Sin filtros.
+                            </p>
+                        </div>
+
+                        {/* Embedded Chat */}
+                        <div className="h-[600px] mb-8">
+                            <ChatWidget isEmbedded={true} />
+                        </div>
+
+                        {/* CTA */}
+                        <div className="text-center">
+                            <p className="text-text-secondary mb-4">Prefieres contacto directo?</p>
+                            <a
+                                href="mailto:info@viajesscibasku.com?subject=Solicitud presupuesto - Buceo Arabia Saudi"
+                                className="btn-gold px-8 py-3 rounded-lg font-600 inline-block"
+                            >
+                                Solicitar presupuesto con Giora
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Footer
+        function Footer() {
+            return (
+                <footer className="bg-dark-secondary border-t border-dark-tertiary py-12">
+                    <div className="max-w-7xl mx-auto px-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                            {/* Logo & Brand */}
+                            <div>
+                                <div className="text-gold font-bold text-lg mb-2">SCIBASKU</div>
+                                <p className="text-text-secondary text-sm">Viajes Scibasku | CICMA 2283</p>
+                            </div>
+
+                            {/* Contact */}
+                            <div>
+                                <p className="text-text-primary font-600 mb-3">Contacto</p>
+                                <a href="mailto:info@viajesscibasku.com" className="text-gold hover:text-gold-hover text-sm block mb-2">
+                                    info@viajesscibasku.com
+                                </a>
+                                <a href="https://viajesscibasku.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-hover text-sm">
+                                    viajesscibasku.com
+                                </a>
+                            </div>
+
+                            {/* Social */}
+                            <div>
+                                <p className="text-text-primary font-600 mb-3">Siguenos</p>
+                                <div className="flex gap-4">
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-hover">
+                                        f
+                                    </a>
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-hover">
+                                        ig
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Copyright */}
+                        <div className="border-t border-dark-tertiary pt-8 text-center text-text-secondary text-sm">
+                            <p>2026 Viajes Scibasku. Todos los derechos reservados. | CICMA 2283</p>
+                        </div>
+                    </div>
+                </footer>
+            );
+        }
+
+        // Main App Component
+        function App() {
+            const [activeSection, setActiveSection] = React.useState("hero");
+
+            const handleNavClick = (section) => {
+                const sectionMap = {
+                    "Destino": "destino",
+                    "Liveaboard": "liveaboard",
+                    "Centros": "centros",
+                    "Chatbot": "chatbot"
+                };
+                const targetId = sectionMap[section] || section.toLowerCase();
+                setActiveSection(section);
+                const element = document.getElementById(targetId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+
+            return (
+                <div className="bg-dark-primary text-text-primary">
+                    <Navbar activeSection={activeSection} onNavClick={handleNavClick} />
+                    <HeroSection />
+                    <WhySaudiSection />
+                    <LiveaboardSection />
+                    <DiveCentersSection />
+                    <ChatbotSection />
+                    <ChatWidget isEmbedded={false} />
+                    <Footer />
+                </div>
+            );
+        }
+
+        // Render App
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
