@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buceo Arabia Saudi | Scibasku</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',Arial,sans-serif;background:#0a1628;color:#fff;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+        .tabs{display:flex;border-bottom:1px solid rgba(212,175,55,.2);background:rgba(10,22,40,.95)}
+        .tab{flex:1;padding:.9rem .5rem;text-align:center;font-size:.8rem;font-weight:600;color:#b8c5d6;cursor:pointer;transition:all .2s;border-bottom:2px solid transparent;letter-spacing:.5px}
+        .tab:hover{color:#fff}
+        .tab.active{color:#d4af37;border-bottom-color:#d4af37}
+        .panel{flex:1;display:none;flex-direction:column;overflow:hidden}
+        .panel.active{display:flex}
+        /* Chat */
+        .ch-hdr{padding:.8rem 1.2rem;background:rgba(212,175,55,.1);border-bottom:1px solid rgba(212,175,55,.15);display:flex;justify-content:space-between;align-items:center}
+        .ch-hdr h3{font-family:Georgia,serif;font-size:1rem;color:#d4af37}
+        .ch-hdr span{font-size:.75rem;color:#b8c5d6}
+        .ch-msgs{flex:1;overflow-y:scroll;padding:1rem;display:flex;flex-direction:column;gap:.7rem;min-height:0}
+        .ch-msg{padding:.7rem 1rem;border-radius:14px;font-size:.88rem;line-height:1.55;max-width:82%;word-wrap:break-word;animation:msgIn .3s ease}
+        .ch-msg.bot{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);color:#dce4ec;align-self:flex-start;margin-right:auto}
+        .ch-msg.user{background:#d4af37;color:#0a1628;align-self:flex-end;margin-left:auto}
+        @keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        .ch-msg.error{background:rgba(229,57,53,.15);border:1px solid rgba(229,57,53,.3);color:#f87171;align-self:flex-start}
+        .ch-typing{display:none;padding:.3rem 1rem;font-size:.75rem;color:#5a6578;font-style:italic}
+        .ch-pills{padding:.5rem 1rem;display:flex;flex-wrap:wrap;gap:5px}
+        .ch-pill{background:rgba(31,180,209,.12);border:1px solid rgba(31,180,209,.25);color:#1fb4d1;border-radius:20px;padding:5px 12px;font-size:.75rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+        .ch-pill:hover{background:rgba(31,180,209,.3)}
+        .ch-input-area{padding:.7rem 1rem;border-top:1px solid rgba(212,175,55,.15);display:flex;gap:8px}
+        .ch-input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:9px 12px;color:#fff;font-size:.85rem;font-family:'Inter',Arial,sans-serif;outline:none}
+        .ch-input::placeholder{color:#5a6578}
+        .ch-send{background:#d4af37;color:#0a1628;border:none;border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:600;font-size:.85rem;transition:all .2s}
+        .ch-send:hover{background:#e6c655}
+        .ch-send:disabled{opacity:.5;cursor:not-allowed}
+        /* Boats */
+        .boats-wrap{flex:1;overflow-y:auto;padding:1rem}
+        .filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;padding:0 .2rem}
+        .fbtn{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);color:#b8c5d6;border-radius:20px;padding:5px 12px;font-size:.75rem;cursor:pointer;transition:all .2s}
+        .fbtn:hover{border-color:#d4af37;color:#d4af37}
+        .fbtn.active{background:#d4af37;color:#0a1628;border-color:#d4af37}
+        .boat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+        .boat-card{background:rgba(255,255,255,.03);border:1px solid rgba(212,175,55,.12);border-radius:12px;overflow:hidden;transition:all .2s}
+        .boat-card:hover{border-color:rgba(212,175,55,.4)}
+        .boat-top{background:linear-gradient(135deg,rgba(13,40,71,.8),rgba(10,22,40,.9));padding:1.2rem;display:flex;align-items:center;gap:1rem}
+        .boat-icon{font-size:2rem;min-width:40px;text-align:center}
+        .boat-name{font-size:.95rem;font-weight:600;color:#fff}
+        .boat-op{font-size:.75rem;color:#b8c5d6;margin-top:2px}
+        .boat-body{padding:1rem 1.2rem}
+        .boat-row{display:flex;justify-content:space-between;font-size:.8rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+        .boat-row:last-child{border:none}
+        .boat-label{color:#5a6578}
+        .boat-val{color:#b8c5d6;text-align:right}
+        .boat-price{margin-top:.7rem;background:rgba(31,180,209,.1);border:1px solid rgba(31,180,209,.2);border-radius:8px;padding:.5rem .8rem;text-align:center}
+        .boat-price span{color:#1fb4d1;font-weight:600;font-size:.85rem}
+        .boat-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:.6rem}
+        .boat-tag{background:rgba(212,175,55,.1);color:#d4af37;font-size:.65rem;padding:2px 8px;border-radius:10px}
+        .boat-feats{margin-top:.6rem;display:none}
+        .boat-feats.open{display:block}
+        .boat-feat{font-size:.75rem;color:#b8c5d6;padding:2px 0}
+        .boat-feat::before{content:'\2713 ';color:#22c55e}
+        .boat-toggle{width:100%;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);color:#d4af37;border-radius:8px;padding:.5rem;font-size:.75rem;cursor:pointer;margin-top:.6rem;transition:all .2s}
+        .boat-toggle:hover{background:rgba(212,175,55,.2)}
+        .boat-contact{margin-top:.5rem;display:none;font-size:.75rem;color:#b8c5d6}
+        .boat-contact.open{display:block}
+        .boat-contact a{color:#1fb4d1;text-decoration:none}
+        .boat-contact a:hover{text-decoration:underline}
+        /* Centers */
+        .centers-wrap{flex:1;overflow-y:auto;padding:1rem}
+        .city-tabs{display:flex;gap:8px;margin-bottom:1rem}
+        .city-tab{flex:1;padding:.6rem;text-align:center;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);color:#b8c5d6;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;transition:all .2s}
+        .city-tab:hover{border-color:#d4af37;color:#d4af37}
+        .city-tab.active{background:#d4af37;color:#0a1628;border-color:#d4af37}
+        .center-card{background:rgba(255,255,255,.03);border:1px solid rgba(212,175,55,.12);border-radius:10px;padding:1rem;margin-bottom:.8rem;transition:all .2s}
+        .center-card:hover{border-color:rgba(212,175,55,.3)}
+        .center-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem}
+        .center-name{font-size:.9rem;font-weight:600;color:#fff}
+        .center-cert{background:rgba(31,180,209,.15);color:#1fb4d1;font-size:.65rem;padding:2px 8px;border-radius:10px;white-space:nowrap}
+        .center-note{font-size:.75rem;color:#d4af37;margin-bottom:.4rem}
+        .center-info{font-size:.75rem;color:#b8c5d6}
+        .center-info a{color:#1fb4d1;text-decoration:none}
+        .center-info a:hover{text-decoration:underline}
+        /* No results */
+        .no-results{text-align:center;padding:2rem;color:#5a6578;font-size:.9rem}
+        @media(max-width:480px){.boat-grid{grid-template-columns:1fr}.tab{font-size:.7rem;padding:.7rem .3rem}}
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab active" onclick="showPanel('chat')">Chatbot IA</div>
+        <div class="tab" onclick="showPanel('boats')">Barcos (7)</div>
+        <div class="tab" onclick="showPanel('centers')">Centros</div>
+    </div>
+
+    <!-- CHAT PANEL -->
+    <div class="panel active" id="p-chat">
+        <div class="ch-hdr">
+            <h3>Asistente Buceo Arabia Saudi</h3>
+            <span>Scibasku</span>
+        </div>
+        <div class="ch-msgs" id="msgs">
+            <div class="ch-msg bot">Hola! Soy el asistente de Scibasku para buceo en Arabia Saudi. Preguntame sobre barcos, zonas de buceo, visados, precios... I also speak English!</div>
+        </div>
+        <div class="ch-typing" id="typing">Pensando...</div>
+        <div class="ch-pills" id="pills"></div>
+        <div class="ch-input-area">
+            <input class="ch-input" id="input" type="text" placeholder="Pregunta sobre buceo en Arabia Saudi..." onkeypress="if(event.key==='Enter')send()">
+            <button class="ch-send" id="sendbtn" onclick="send()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- BOATS PANEL -->
+    <div class="panel" id="p-boats">
+        <div class="boats-wrap">
+            <div class="filters" id="boat-filters"></div>
+            <div class="boat-grid" id="boat-grid"></div>
+        </div>
+    </div>
+
+    <!-- CENTERS PANEL -->
+    <div class="panel" id="p-centers">
+        <div class="centers-wrap">
+            <div class="city-tabs">
+                <div class="city-tab active" onclick="showCity('jeddah')">Jeddah (5)</div>
+                <div class="city-tab" onclick="showCity('yanbu')">Yanbu (4)</div>
+            </div>
+            <div id="center-list"></div>
+        </div>
+    </div>
+
+    <script>
+        /* ====== TABS ====== */
+        function showPanel(id){
+            var panels=document.querySelectorAll('.panel');
+            var tabs=document.querySelectorAll('.tab');
+            for(var i=0;i<panels.length;i++){panels[i].classList.remove('active');tabs[i].classList.remove('active')}
+            document.getElementById('p-'+id).classList.add('active');
+            var idx={chat:0,boats:1,centers:2}[id];
+            tabs[idx].classList.add('active');
+        }
+
+        /* ====== CHATBOT ====== */
+        var hist=[];
+        var pool=[
+            {e:'\uD83E\uDD88',t:'Mejor epoca para bucear?'},
+            {e:'\u26F5',t:'Que barcos hay disponibles?'},
+            {e:'\uD83D\uDCB0',t:'Precios por semana?'},
+            {e:'\uD83D\uDCCB',t:'Necesito visado?'},
+            {e:'\uD83E\uDD08',t:'Que fauna hay?'},
+            {e:'\uD83C\uDF0A',t:'Que es Farasan Banks?'},
+            {e:'\uD83E\uDD3F',t:'Centros de buceo en tierra?'},
+            {e:'\u2708\uFE0F',t:'Como llego a Arabia Saudi?'}
+        ];
+        var used=[];
+        function renderPills(){
+            var c=document.getElementById('pills');c.innerHTML='';
+            var av=[];for(var i=0;i<pool.length;i++){var u=false;for(var j=0;j<used.length;j++){if(used[j]===pool[i].t){u=true;break}}if(!u)av.push(pool[i])}
+            if(!av.length){var h=document.createElement('span');h.className='ch-pill';h.style.opacity='.6';h.style.cursor='default';h.textContent='Escribe tu pregunta';c.appendChild(h);return}
+            var sh=av.sort(function(){return .5-Math.random()}).slice(0,4);
+            for(var k=0;k<sh.length;k++){var s=document.createElement('span');s.className='ch-pill';s.textContent=sh[k].e+' '+sh[k].t;s.onclick=(function(t,el){return function(){used.push(t);el.style.opacity='0';setTimeout(renderPills,300);sendMsg(t)}})(sh[k].t,s);c.appendChild(s)}
+        }
+        renderPills();
+        function send(){var inp=document.getElementById('input');var t=inp.value.trim();if(!t)return;inp.value='';sendMsg(t)}
+        function fmt(t){var d=document.createElement('div');d.appendChild(document.createTextNode(t));var s=d.innerHTML;s=s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');return s.replace(/\n/g,'<br>')}
+        function sendMsg(t){
+            var ms=document.getElementById('msgs');
+            var ud=document.createElement('div');ud.className='ch-msg user';ud.textContent=t;ms.appendChild(ud);ms.scrollTop=ms.scrollHeight;
+            hist.push({role:'user',content:t});
+            document.getElementById('sendbtn').disabled=true;document.getElementById('typing').style.display='block';
+            var ctrl=new AbortController();var tid=setTimeout(function(){ctrl.abort()},18000);
+            fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist}),signal:ctrl.signal})
+            .then(function(r){clearTimeout(tid);if(!r.ok)throw new Error('err');return r.json()})
+            .then(function(d){
+                var reply=d.content&&d.content[0]&&d.content[0].text?d.content[0].text:'Error. Contacta Giora: +34 619 40 10 41';
+                hist.push({role:'assistant',content:reply});
+                var bd=document.createElement('div');bd.className='ch-msg bot';bd.innerHTML=fmt(reply);ms.appendChild(bd)
+            })
+            .catch(function(e){clearTimeout(tid);var ed=document.createElement('div');ed.className='ch-msg error';ed.textContent=e.name==='AbortError'?'Tarda demasiado. Contacta Giora: +34 619 40 10 41':'Error. Contacta Giora: +34 619 40 10 41';ms.appendChild(ed)})
+            .finally(function(){document.getElementById('sendbtn').disabled=false;document.getElementById('typing').style.display='none';ms.scrollTop=ms.scrollHeight})
+        }
+
+        /* ====== BOATS ====== */
+        var boats=[
+            {id:1,name:'M/Y Almonda',op:'Ocean Breeze Liveaboards',cap:'24 pax',cab:'12 cabinas',len:'39.9m',year:'2017',price:'~2.593 USD',tags:['Seven Sisters','Farasan Banks'],feats:['Nitrox incluido','Jacuzzi','WiFi'],email:'info@oceanbreeze-liveaboards.com',wa:'+966 54 579 0970'},
+            {id:2,name:'Dream Master',op:'Dream Divers',cap:'28 pax',cab:'7 cabinas',len:'28.3m',year:'2005',price:'Consultar',tags:['Farasan Banks','Seven Sisters'],feats:['Chef filipino','Equipo DAN','2 semirrigidas'],email:'Eric@dreamdiver.sa',phone:'+966-56-301-1112'},
+            {id:3,name:'Dream Island',op:'Dream Divers',cap:'14 pax',cab:'6 cabinas',len:'26.3m',year:'2007',price:'Consultar',tags:['Farasan Banks'],feats:['Grupos privados','Nitrox','Desalinizador'],email:'Eric@dreamdiver.sa'},
+            {id:4,name:'M/Y Eclipse',op:'Eclipse Red Sea',cap:'24 pax',cab:'12 cabinas',len:'45m',year:'2021',price:'Consultar',tags:['Farasan Banks','Seven Sisters'],feats:['Barco de lujo','4 idiomas','Nuevo 2021'],email:'info@eclipse-redsea.com',phone:'+2 010 6884 3032'},
+            {id:5,name:'Saudi Explorer',op:'La Compagnia del Mar Rosso',cap:'20 pax',cab:'10 cabinas',len:'33m',year:null,price:'2.310 EUR',tags:['Farasan Banks','Seven Sisters','Five Corals'],feats:['WiFi','Buceos ilimitados','Nitrox'],email:'info@mar-rosso.it'},
+            {id:6,name:'M/Y Andromeda',op:'Cassiopeia Safari',cap:'26 pax',cab:'13 cabinas',len:'40m',year:null,price:'1.928 EUR',tags:['Farasan Banks'],feats:['4 cubiertas','Shisha room','Solarium'],email:'info@cassiopeiasafari.com'},
+            {id:7,name:'Royal Evolution',op:'Royal Evolution',cap:'24 pax',cab:'12 cabinas',len:'39m',year:null,price:'Consultar',tags:['Farasan Banks'],feats:['SOLAS Bureau Veritas','Nitrox GRATUITO','3 instructores'],web:'royalevolution.com'}
+        ];
+        var curFilter='Todos';
+        function initBoats(){
+            var allTags=['Todos'];
+            for(var i=0;i<boats.length;i++){for(var j=0;j<boats[i].tags.length;j++){if(allTags.indexOf(boats[i].tags[j])===-1)allTags.push(boats[i].tags[j])}}
+            var fc=document.getElementById('boat-filters');
+            for(var k=0;k<allTags.length;k++){
+                var b=document.createElement('button');b.className='fbtn'+(allTags[k]==='Todos'?' active':'');b.textContent=allTags[k];
+                b.onclick=(function(tag){return function(){curFilter=tag;var btns=document.querySelectorAll('.fbtn');for(var x=0;x<btns.length;x++)btns[x].classList.remove('active');this.classList.add('active');renderBoats()}})(allTags[k]);
+                fc.appendChild(b)
+            }
+            renderBoats()
+        }
+        function renderBoats(){
+            var g=document.getElementById('boat-grid');g.innerHTML='';
+            var filtered=curFilter==='Todos'?boats:boats.filter(function(b){return b.tags.indexOf(curFilter)!==-1});
+            if(!filtered.length){g.innerHTML='<div class="no-results">No hay barcos para este filtro</div>';return}
+            for(var i=0;i<filtered.length;i++){
+                var b=filtered[i];
+                var card=document.createElement('div');card.className='boat-card';
+                var tagsHtml='';for(var t=0;t<b.tags.length;t++)tagsHtml+='<span class="boat-tag">'+b.tags[t]+'</span>';
+                var featsHtml='';for(var f=0;f<b.feats.length;f++)featsHtml+='<div class="boat-feat">'+b.feats[f]+'</div>';
+                var contactHtml='';
+                if(b.email)contactHtml+='<div><a href="mailto:'+b.email+'">'+b.email+'</a></div>';
+                if(b.phone)contactHtml+='<div>'+b.phone+'</div>';
+                if(b.wa)contactHtml+='<div>WhatsApp: '+b.wa+'</div>';
+                if(b.web)contactHtml+='<div><a href="https://'+b.web+'" target="_blank">'+b.web+'</a></div>';
+                card.innerHTML='<div class="boat-top"><div class="boat-icon">\u26F5</div><div><div class="boat-name">'+b.name+'</div><div class="boat-op">'+b.op+'</div></div></div>'
+                    +'<div class="boat-body">'
+                    +'<div class="boat-row"><span class="boat-label">Capacidad</span><span class="boat-val">'+b.cap+' &middot; '+b.cab+'</span></div>'
+                    +'<div class="boat-row"><span class="boat-label">Eslora</span><span class="boat-val">'+b.len+'</span></div>'
+                    +(b.year?'<div class="boat-row"><span class="boat-label">Ano</span><span class="boat-val">'+b.year+'</span></div>':'')
+                    +'<div class="boat-price"><span>'+b.price+' / semana</span></div>'
+                    +'<div class="boat-tags">'+tagsHtml+'</div>'
+                    +'<div class="boat-feats" id="feats-'+b.id+'">'+featsHtml+'</div>'
+                    +'<div class="boat-contact" id="contact-'+b.id+'">'+contactHtml+'</div>'
+                    +'<button class="boat-toggle" onclick="toggleBoat('+b.id+')">Ver detalles</button>'
+                    +'</div>';
+                g.appendChild(card)
+            }
+        }
+        function toggleBoat(id){
+            var f=document.getElementById('feats-'+id);
+            var c=document.getElementById('contact-'+id);
+            var open=f.classList.contains('open');
+            f.classList.toggle('open');c.classList.toggle('open');
+            var btn=f.parentNode.querySelector('.boat-toggle');
+            btn.textContent=open?'Ver detalles':'Ocultar detalles'
+        }
+        initBoats();
+
+        /* ====== CENTERS ====== */
+        var centers={
+            jeddah:[
+                {name:'Al-Haddad Scuba',cert:'SSI',web:'haddadscuba.com',note:'El mas grande de Jeddah'},
+                {name:'Red Sea Citizen',cert:'PADI',web:'redsea-citizen.com',email:'info@redsea-citizen.com',phone:'+966 53 750 8842'},
+                {name:'Dive Holics',cert:'PADI 5 Star IDC',web:'diveholics.com',phone:'+966 54 141 8484'},
+                {name:'Al Sanbouk',cert:'PADI 5 Star IDC',web:'jeddah-diver.com',note:'Mayor distribuidor equipo'},
+                {name:'Saudia Scuba',cert:'PADI',web:'saudiascuba.com',phone:'+966 57 006 0090'}
+            ],
+            yanbu:[
+                {name:'Diving Bubbles',cert:'PADI 5 Star',web:'bubblesgroup.com',phone:'+966 56 081 0339',note:'Cerrado martes'},
+                {name:'Adventure Diver',cert:'PADI',web:'adventuredivers.sa',phone:'+966 50 602 1313'},
+                {name:'Blue Diver',cert:'PADI',web:'bluediver.com.sa',note:'19 sitios de buceo'},
+                {name:'Galaxea',cert:'PADI 5 Star Adaptive',web:'Red Sea Global',phone:'+966 53 970 7365',note:'Nujuma / Turtle Bay'}
+            ]
+        };
+        var curCity='jeddah';
+        function showCity(city){
+            curCity=city;
+            var tabs=document.querySelectorAll('.city-tab');
+            for(var i=0;i<tabs.length;i++)tabs[i].classList.remove('active');
+            tabs[city==='jeddah'?0:1].classList.add('active');
+            renderCenters()
+        }
+        function renderCenters(){
+            var list=document.getElementById('center-list');list.innerHTML='';
+            var data=centers[curCity];
+            for(var i=0;i<data.length;i++){
+                var c=data[i];
+                var card=document.createElement('div');card.className='center-card';
+                var html='<div class="center-top"><span class="center-name">'+c.name+'</span><span class="center-cert">'+c.cert+'</span></div>';
+                if(c.note)html+='<div class="center-note">'+c.note+'</div>';
+                html+='<div class="center-info">';
+                if(c.web)html+='<a href="https://'+c.web+'" target="_blank">'+c.web+'</a><br>';
+                if(c.email)html+='<a href="mailto:'+c.email+'">'+c.email+'</a><br>';
+                if(c.phone)html+=c.phone;
+                html+='</div>';
+                card.innerHTML=html;
+                list.appendChild(card)
+            }
+        }
+        renderCenters();
+    </script>
+</body>
+</html>
